@@ -14,7 +14,65 @@ const Login = () => {
         </figure>
 
         <div className="mt-8 flex flex-col w-[336px]">
-          <div className="flex items-center border flex-col border-[#DBDBDB]"></div>
+          <div className="flex items-center border flex-col border-[#DBDBDB]">
+            <figure className=" mt-8">
+              <img src={logo} alt="instagram_logo" />
+            </figure>
+
+            <form className="mt-4 flex flex-col gap-2">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Email"
+                  className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[248px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[248px] outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
+                />
+              </div>
+
+              <button className="bg-[#4cb5f9] text-white font-semibold text-xs rounded-[8px] mt-4 h-8">
+                Log in
+              </button>
+            </form>
+
+            <div className="mt-4 flex items-center w-full gap-4 px-[44px]">
+              <hr className="w-full border border-[#d9d9d9]" />
+              <p className="text-[#b4b4b4] font-semibold text-xs">OR</p>
+              <hr className="w-full border border-[#d9d9d9]" />
+            </div>
+
+            <div className="mt-6 flex items-center gap-2">
+              <img src={facebook} alt="facebook_logo" />
+              <p className="font-medium text-xs text-[#3d5a98]">
+                Log in with facebook
+              </p>
+            </div>
+
+            <p className="text-xs mt-6 mb-6 font-medium text-[#00376B]">
+              Forgotten your password
+            </p>
+          </div>
+          <div className=" border border-[#dbdbdb] flex items-center justify-center mt-2 h-12">
+            <p className="text-[12px] font-medium text-[#252525]">
+              Don't have an account{" "}
+              <span className="text-[#0095F7]">Sign up</span>
+            </p>
+          </div>
+
+          <div className="flex flex-col mt-8 gap-8 items-center">
+            <p className="text-xs text-[#252525]">Get the app.</p>
+
+            <figure className="flex items-center gap-4">
+              <img src={playstore} alt="playstore_logo" />
+              <img src={microsoft} alt="microsoft_logo" />
+            </figure>
+          </div>
         </div>
       </div>
     </section>
