@@ -20,21 +20,17 @@ const Login = () => {
             </figure>
 
             <form className="mt-4 flex flex-col gap-2">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Email"
-                  className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[248px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
-                />
-              </div>
+              <input
+                type="email"
+                placeholder="Email"
+                className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[248px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
+              />
 
-              <div>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[248px] outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
-                />
-              </div>
+              <input
+                type="password"
+                placeholder="Password"
+                className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[248px] outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
+              />
 
               <button className="bg-[#4cb5f9] text-white font-semibold text-xs rounded-[8px] mt-4 h-8">
                 Log in
