@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <section className="flex items-center justify-center h-[100vh]">
+    <section className="flex items-center justify-center sm:h-screen">
       <div className="flex gap-4 items-start">
-        <figure>
+        <figure className="lg:flex hidden">
           <img src={mockup} alt="login_mockup" />
         </figure>
 
         <div className="mt-8 flex flex-col w-[336px]">
-          <div className="flex items-center border flex-col border-[#DBDBDB]">
+          <div className="flex items-center sm:border flex-col border-[#DBDBDB]">
             <figure className=" mt-8">
               <img src={logo} alt="instagram_logo" />
             </figure>
@@ -48,7 +48,7 @@ const Login = () => {
               Forgotten your password
             </p>
           </div>
-          <div className=" border border-[#dbdbdb] flex items-center justify-center mt-2 h-12">
+          <div className=" sm:border border-[#dbdbdb] flex items-center justify-center mt-2 h-12">
             <p className="text-[12px] font-medium text-[#252525]">
               Don't have an account{" "}
               <Link to="/signup">
