@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <section className="flex items-center justify-center flex-col mt-8">
-      <div className="border w-[349px] flex items-center flex-col border-[#dbdbdb]">
+    <section className="flex  items-center justify-center flex-col mt-8">
+      <div className="sm:border sm:w-[349px] flex items-center flex-col border-[#dbdbdb]">
         <figure className="mt-8">
           <img src={logo} alt="instagram_logo" />
         </figure>
@@ -29,7 +29,7 @@ const Signup = () => {
         </div>
         <form
           action=""
-          className="mt-4 flex flex-col items-center w-full gap-2 px-[40px]"
+          className="mt-4 flex flex-col items-center w-full gap-2 sm:px-[40px]"
         >
           <input
             type="email"
@@ -72,7 +72,7 @@ const Signup = () => {
         </form>
       </div>
 
-      <div className="border border-[#dbdbdb] w-[349px] flex items-center justify-center mt-2 h-12">
+      <div className="sm:border border-[#dbdbdb] sm:w-[349px] flex items-center justify-center mt-2 h-12">
         <p className="text-xs flex items-center justify-center w-full font-medium text-[#252525]">
           Have an account?&nbsp;
           <Link to="/login">
