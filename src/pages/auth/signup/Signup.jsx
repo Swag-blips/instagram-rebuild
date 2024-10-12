@@ -31,26 +31,10 @@ const Signup = () => {
           action=""
           className="mt-4 flex flex-col items-center w-full gap-2 sm:px-[40px]"
         >
-          <input
-            type="email"
-            placeholder="Email"
-            className="pl-2 border  bg-[#FCFBFC] border-[#DBDBDB] w-[268px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
-          />
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[268px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
-          />
-          <input
-            type="text"
-            placeholder="Username"
-            className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[268px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[268px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4]"
-          />
+          <input type="email" placeholder="Email" className="authInput" />
+          <input type="text" placeholder="Full Name" className="authInput" />
+          <input type="text" placeholder="Username" className="authInput" />
+          <input type="password" placeholder="Password" className="authInput" />
 
           <p className="text-[#717171] text-xs text-center justify-center w-[268px] mt-6">
             People who use our service may have uploaded your contact

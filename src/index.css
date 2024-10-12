@@ -12,3 +12,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.authInput {
+  @apply pl-2 border bg-[#FCFBFC] border-[#DBDBDB] w-[268px] text-xs outline-none h-8 placeholder:text-xs placeholder:font-medium placeholder:text-[#B4B4B4];
+}
