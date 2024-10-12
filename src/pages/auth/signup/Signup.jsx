@@ -3,6 +3,7 @@ import logo from "/assets/logo.svg";
 import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -18,7 +19,7 @@ const Signup = () => {
         <button className="flex items-center rounded-lg w-[268px] mt-2 h-8 gap-2 justify-center  bg-[#0095F6]">
           <img src={facebookAlt} alt="facebook_logo" />
           <p className="text-[#ffffff] text-xs font-medium">
-            Log in with facebook
+            Sign in with facebook
           </p>
         </button>
         <div className="mt-4 flex items-center w-full gap-4 px-[40px]">
@@ -66,14 +67,17 @@ const Signup = () => {
           </p>
 
           <button className="bg-[#4cb5f9] w-full mb-[24px] text-white font-semibold text-xs rounded-[8px] mt-4 h-8">
-            Log in
+            Sign up
           </button>
         </form>
       </div>
 
       <div className="border border-[#dbdbdb] w-[349px] flex items-center justify-center mt-2 h-12">
         <p className="text-xs flex items-center justify-center w-full font-medium text-[#252525]">
-          Have an account?&nbsp;<span className="text-[#0095F7]">Log in</span>
+          Have an account?&nbsp;
+          <Link to="/login">
+            <span className="text-[#0095F7]">Log in</span>
+          </Link>
         </p>
       </div>
 

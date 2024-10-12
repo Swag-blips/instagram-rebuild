@@ -4,6 +4,7 @@ import logo from "/assets/logo.svg";
 import facebook from "/assets/Facebook.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -57,7 +58,9 @@ const Login = () => {
           <div className=" border border-[#dbdbdb] flex items-center justify-center mt-2 h-12">
             <p className="text-[12px] font-medium text-[#252525]">
               Don't have an account{" "}
-              <span className="text-[#0095F7]">Sign up</span>
+              <Link to="/signup">
+                <span className="text-[#0095F7]">Sign up</span>
+              </Link>
             </p>
           </div>
 
