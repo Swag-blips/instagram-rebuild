@@ -1,13 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "/assets/logo.svg";
 import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
 import { Link } from "react-router-dom";
+import { validateSignUp } from "../../../utils/validate";
+import useSignUp from "../../../hooks/useSignUp";
 
 const Signup = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    username: "",
+    fullName: "",
+  });
+
+  const { signUp } = useSignUp();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      validateSignUp(
+        formData.email,
+        formData.password,
+        formData.username,
+        formData.fullName
+      )
+    ) {
+      await signUp(
+        formData.email,
+        formData.password,
+        formData.username,
+        formData.fullName
+      );
+    } else {
+      return;
+    }
+  };
+
   return (
-    <section className="flex  items-center justify-center flex-col mt-8">
+    <section className="flex  items-center justify-center flex-col  md:mt-8">
       <div className="sm:border sm:w-[349px] flex items-center flex-col border-[#dbdbdb]">
         <figure className="mt-8">
           <img src={logo} alt="instagram_logo" />
@@ -28,13 +66,38 @@ const Signup = () => {
           <hr className="w-full border border-[#d9d9d9]" />
         </div>
         <form
+          onSubmit={handleSubmit}
           action=""
           className="mt-4 flex flex-col items-center w-full gap-2 sm:px-[40px]"
         >
-          <input type="email" placeholder="Email" className="authInput" />
-          <input type="text" placeholder="Full Name" className="authInput" />
-          <input type="text" placeholder="Username" className="authInput" />
-          <input type="password" placeholder="Password" className="authInput" />
+          <input
+            onChange={handleChange}
+            name="email"
+            type="email"
+            placeholder="Email"
+            className="authInput"
+          />
+          <input
+            onChange={handleChange}
+            name="fullName"
+            type="text"
+            placeholder="Full Name"
+            className="authInput"
+          />
+          <input
+            name="username"
+            onChange={handleChange}
+            type="text"
+            placeholder="Username"
+            className="authInput"
+          />
+          <input
+            onChange={handleChange}
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="authInput"
+          />
 
           <p className="text-[#717171] text-xs text-center justify-center w-[268px] mt-6">
             People who use our service may have uploaded your contact
