@@ -8,13 +8,13 @@ import { Link, Navigate } from "react-router-dom";
 import useLogin from "../../../hooks/useLogin";
 import { useUser } from "../../../../context/UserContext";
 import Loader from "../../../helpers/Loader";
-import useFacebookLogin from "../../../hooks/useFacebookLogin";
+import useFacebookAuth from "../../../hooks/useFacebookAuth";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login } = useLogin();
   const { user, loading } = useUser();
-  const { signInWithFacebook } = useFacebookLogin();
+  const { signInWithFacebook } = useFacebookAuth();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

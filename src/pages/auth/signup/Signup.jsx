@@ -8,7 +8,7 @@ import { validate } from "../../../utils/validate";
 import useSignUp from "../../../hooks/useSignUp";
 import { useUser } from "../../../../context/UserContext";
 import Loader from "../../../helpers/Loader";
-import useFacebookSignUp from "../../../hooks/useFacebookSignUp";
+import useFacebookSignUp from "../../../hooks/useFacebookAuth";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ const Signup = () => {
 
   const { signUp } = useSignUp();
   const { user, loading } = useUser();
-  const { facebookSignUp } = useFacebookSignUp();
+  const { signInWithFacebook } = useFacebookSignUp();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,15 +51,16 @@ const Signup = () => {
   };
 
   const handleFacebookAuth = async () => {
-    await facebookSignUp();
+    await signInWithFacebook();
   };
-  // if (loading) {
-  //   return <Loader />;
-  // }
 
-  // if (user) {
-  //   return <Navigate to="/" />;
-  // }
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <section className="flex  items-center justify-center flex-col  sm:mt-8">
