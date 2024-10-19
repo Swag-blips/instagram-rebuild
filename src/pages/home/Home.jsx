@@ -1,13 +1,13 @@
 import React from "react";
 import { useUser } from "../../../context/UserContext";
-import { Navigate, useNavigate } from "react-router-dom";
-import Spinner from "../../../helpers/Spinner";
+import { Navigate } from "react-router-dom";
+import Loader from "../../../helpers/Loader";
 
 const Home = () => {
   const { user, loading } = useUser();
 
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
   if (!user) {
     return <Navigate to="/login" />;

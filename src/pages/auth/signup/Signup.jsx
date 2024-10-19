@@ -3,11 +3,11 @@ import logo from "/assets/logo.svg";
 import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { validateSignUp } from "../../../utils/validate";
 import useSignUp from "../../../hooks/useSignUp";
 import { useUser } from "../../../../context/UserContext";
-import Spinner from "../../../../helpers/Spinner";
+import Loader from "../../../../helpers/Loader";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ const Signup = () => {
     }
   };
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   if (user) {

@@ -2,8 +2,10 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import toast from "react-hot-toast";
 import { auth, db } from "../../firebase/config";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const useSignUp = () => {
+  const navigate = useNavigate();
   const signUp = async (email, password, username, fullName) => {
     try {
       const user = await toast.promise(
@@ -26,6 +28,8 @@ const useSignUp = () => {
           fullName,
           profilePic: "",
         });
+
+        navigate("/");
 
         console.log("User successfully saved in firestore ");
       }

@@ -8,7 +8,6 @@ import { Toaster } from "react-hot-toast";
 import UserProvider from "../context/UserContext";
 import Home from "./pages/home/Home";
 import RootLayout from "./layout/RootLayout";
-import PublicRoute from "../routes/PublicRoute";
 
 const router = createBrowserRouter([
   {
