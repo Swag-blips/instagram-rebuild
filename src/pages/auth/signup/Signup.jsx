@@ -3,10 +3,11 @@ import logo from "/assets/logo.svg";
 import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { validateSignUp } from "../../../utils/validate";
 import useSignUp from "../../../hooks/useSignUp";
 import { useUser } from "../../../../context/UserContext";
+import Spinner from "../../../../helpers/Spinner";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,6 @@ const Signup = () => {
   });
 
   const { signUp } = useSignUp();
-  const navigate = useNavigate();
   const { user, loading } = useUser();
 
   const handleChange = (e) => {
@@ -47,6 +47,13 @@ const Signup = () => {
       return;
     }
   };
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <section className="flex  items-center justify-center flex-col  sm:mt-8">
