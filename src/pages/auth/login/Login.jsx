@@ -8,11 +8,13 @@ import { Link, Navigate } from "react-router-dom";
 import useLogin from "../../../hooks/useLogin";
 import { useUser } from "../../../../context/UserContext";
 import Loader from "../../../helpers/Loader";
+import useFacebookLogin from "../../../hooks/useFacebookLogin";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login } = useLogin();
   const { user, loading } = useUser();
+  const { signInWithFacebook } = useFacebookLogin();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +29,10 @@ const Login = () => {
     await login(formData.email, formData.password);
   };
 
+  const handleFacebookAuth = async () => {
+    await signInWithFacebook();
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -34,6 +40,7 @@ const Login = () => {
   if (user) {
     return <Navigate to="/" />;
   }
+
   return (
     <section className="flex items-center justify-center sm:h-screen">
       <div className="flex gap-4 items-start">
@@ -75,7 +82,10 @@ const Login = () => {
               <hr className="w-full border border-[#d9d9d9]" />
             </div>
 
-            <button className="mt-6 flex items-center gap-2">
+            <button
+              onClick={handleFacebookAuth}
+              className="mt-6 flex items-center gap-2"
+            >
               <img src={facebook} alt="facebook_logo" />
               <p className="font-medium text-xs text-[#3d5a98]">
                 Log in with facebook

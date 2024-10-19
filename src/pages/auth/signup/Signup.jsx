@@ -8,6 +8,7 @@ import { validate } from "../../../utils/validate";
 import useSignUp from "../../../hooks/useSignUp";
 import { useUser } from "../../../../context/UserContext";
 import Loader from "../../../helpers/Loader";
+import useFacebookSignUp from "../../../hooks/useFacebookSignUp";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const Signup = () => {
 
   const { signUp } = useSignUp();
   const { user, loading } = useUser();
+  const { facebookSignUp } = useFacebookSignUp();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,13 +49,17 @@ const Signup = () => {
       return;
     }
   };
-  if (loading) {
-    return <Loader />;
-  }
 
-  if (user) {
-    return <Navigate to="/" />;
-  }
+  const handleFacebookAuth = async () => {
+    await facebookSignUp();
+  };
+  // if (loading) {
+  //   return <Loader />;
+  // }
+
+  // if (user) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <section className="flex  items-center justify-center flex-col  sm:mt-8">
@@ -65,7 +71,10 @@ const Signup = () => {
           Sign up to see photos and videos from <br /> your friends.
         </p>
 
-        <button className="flex items-center rounded-lg w-[268px] mt-2 h-8 gap-2 justify-center  bg-[#0095F6]">
+        <button
+          onClick={handleFacebookAuth}
+          className="flex items-center rounded-lg w-[268px] mt-2 h-8 gap-2 justify-center  bg-[#0095F6]"
+        >
           <img src={facebookAlt} alt="facebook_logo" />
           <p className="text-[#ffffff] text-xs font-medium">
             Sign in with facebook
