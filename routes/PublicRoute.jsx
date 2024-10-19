@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import Spinner from "../helpers/Spinner";
+import Spinner from "../src/helpers/Spinner";
 
 const PublicRoute = ({ children }) => {
   const { user, loading } = useUser();

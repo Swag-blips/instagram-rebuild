@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-export const validateSignUp = (email, password, username, fullName) => {
+export const validate = (email, password, username, fullName) => {
   let isValid = true;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

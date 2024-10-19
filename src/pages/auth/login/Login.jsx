@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import mockup from "/assets/mockup.png";
 import logo from "/assets/logo.svg";
 import facebook from "/assets/Facebook.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import useLogin from "../../../hooks/useLogin";
+import { useUser } from "../../../../context/UserContext";
+import Loader from "../../../helpers/Loader";
 
 const Login = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const { login } = useLogin();
+  const { user, loading } = useUser();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({ ...formData, [name]: value });
+  };
+
+  console.log(formData.email, formData.password);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(formData.email, formData.password);
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
   return (
     <section className="flex items-center justify-center sm:h-screen">
       <div className="flex gap-4 items-start">
@@ -20,14 +47,25 @@ const Login = () => {
               <img src={logo} alt="instagram_logo" />
             </figure>
 
-            <form className="mt-4 flex flex-col gap-2">
-              <input type="email" placeholder="Email" className="authInput" />
+            <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
+              <input
+                type="email"
+                placeholder="Email"
+                className="authInput"
+                name="email"
+                onChange={handleInputChange}
+              />
               <input
                 type="password"
                 placeholder="Password"
                 className="authInput"
+                name="password"
+                onChange={handleInputChange}
               />
-              <button className="bg-[#4cb5f9] text-white font-semibold text-xs rounded-[8px] mt-4 h-8">
+              <button
+                type="submit"
+                className="bg-[#4cb5f9] text-white font-semibold text-xs rounded-[8px] mt-4 h-8"
+              >
                 Log in
               </button>
             </form>
@@ -37,12 +75,12 @@ const Login = () => {
               <hr className="w-full border border-[#d9d9d9]" />
             </div>
 
-            <div className="mt-6 flex items-center gap-2">
+            <button className="mt-6 flex items-center gap-2">
               <img src={facebook} alt="facebook_logo" />
               <p className="font-medium text-xs text-[#3d5a98]">
                 Log in with facebook
               </p>
-            </div>
+            </button>
 
             <p className="text-xs mt-6 mb-6 font-medium text-[#00376B]">
               Forgotten your password

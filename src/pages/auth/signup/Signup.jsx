@@ -4,10 +4,10 @@ import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
 import { Link, Navigate } from "react-router-dom";
-import { validateSignUp } from "../../../utils/validate";
+import { validate } from "../../../utils/validate";
 import useSignUp from "../../../hooks/useSignUp";
 import { useUser } from "../../../../context/UserContext";
-import Loader from "../../../../helpers/Loader";
+import Loader from "../../../helpers/Loader";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (
-      validateSignUp(
+      validate(
         formData.email,
         formData.password,
         formData.username,

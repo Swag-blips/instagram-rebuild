@@ -1,7 +1,7 @@
 import React from "react";
 import { useUser } from "../../../context/UserContext";
 import { Navigate } from "react-router-dom";
-import Loader from "../../../helpers/Loader";
+import Loader from "../../helpers/Loader";
 
 const Home = () => {
   const { user, loading } = useUser();
@@ -12,6 +12,7 @@ const Home = () => {
   if (!user) {
     return <Navigate to="/login" />;
   }
+  
   return <div>Hello Home</div>;
 };
 

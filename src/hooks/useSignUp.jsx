@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { auth, db } from "../../firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { getErrorMessage } from "../utils/getErrorMessage";
 
 const useSignUp = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const useSignUp = () => {
         {
           loading: "Signing up",
           success: "User successfully created",
-          error: "an error occured",
+          error: (err) => getErrorMessage(err),
         }
       );
 
@@ -32,10 +33,11 @@ const useSignUp = () => {
         navigate("/");
 
         console.log("User successfully saved in firestore ");
+      } else {
+        return;
       }
     } catch (error) {
       console.log(` an error occured at the signup hook ${error.message}`);
-      toast.error(error);
     }
   };
 

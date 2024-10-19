@@ -14,7 +14,7 @@ const Loader = () => {
       </figure>
 
       <figure className="meta">
-        <img className="w-12 h-12" src={meta} alt="" />
+        <img className="w-16 h-16 object-contain" src={meta} alt="" />
       </figure>
     </div>
   );
