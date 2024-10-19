@@ -21,7 +21,7 @@ const useSignUp = () => {
         await setDoc(doc(db, "User", currentUserId), {
           id: currentUserId,
           email,
-          bio: "Hi, im new on instagram!",
+          bio: "Hi There, im new to instagram!",
           username,
           fullName,
           profilePic: "",
@@ -31,6 +31,7 @@ const useSignUp = () => {
       }
     } catch (error) {
       console.log(` an error occured at the signup hook ${error.message}`);
+      toast.error(error);
     }
   };
 

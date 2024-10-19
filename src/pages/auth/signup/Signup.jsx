@@ -3,9 +3,10 @@ import logo from "/assets/logo.svg";
 import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
 import playstore from "/assets/playstore.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validateSignUp } from "../../../utils/validate";
 import useSignUp from "../../../hooks/useSignUp";
+import { useUser } from "../../../../context/UserContext";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,9 @@ const Signup = () => {
   });
 
   const { signUp } = useSignUp();
+  const navigate = useNavigate();
+  const { user, loading } = useUser();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -45,7 +49,7 @@ const Signup = () => {
   };
 
   return (
-    <section className="flex  items-center justify-center flex-col  md:mt-8">
+    <section className="flex  items-center justify-center flex-col  sm:mt-8">
       <div className="sm:border sm:w-[349px] flex items-center flex-col border-[#dbdbdb]">
         <figure className="mt-8">
           <img src={logo} alt="instagram_logo" />
