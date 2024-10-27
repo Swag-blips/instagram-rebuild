@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "/assets/logo.svg";
 import facebookAlt from "/assets/facebookAlt.svg";
 import microsoft from "/assets/microsoft.png";
@@ -63,7 +63,7 @@ const Signup = () => {
   }
 
   return (
-    <section className="flex  items-center justify-center flex-col  sm:mt-8">
+    <section className="flex items-center justify-center flex-col  sm:mt-8">
       <div className="sm:border sm:w-[349px] flex items-center flex-col border-[#dbdbdb]">
         <figure className="mt-8">
           <img src={logo} alt="instagram_logo" />
@@ -133,7 +133,6 @@ const Signup = () => {
             &nbsp; and{"  "}&nbsp;
             <span className="text-[#00376B] underline">Cookies Policy.</span>
           </p>
-
           <button className="bg-[#4cb5f9] w-full mb-[24px] text-white font-semibold text-xs rounded-[8px] mt-4 h-8">
             Sign up
           </button>

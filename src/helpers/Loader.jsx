@@ -1,5 +1,5 @@
 import React from "react";
-import instaLogo from "/assets/insta-logo.png";
+import instaLogo from "/assets/insta-logo1.png";
 import meta from "/assets/download.png";
 
 const Loader = () => {

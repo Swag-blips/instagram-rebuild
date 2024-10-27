@@ -12,7 +12,7 @@ const Home = () => {
   if (!user) {
     return <Navigate to="/login" />;
   }
-  
+
   return <div>Hello Home</div>;
 };
 
